@@ -52,4 +52,15 @@ public class ShoppingCart {
         System.out.println("Cart is cleared successfully.");
     }
 
+    private void displayCart(){
+        if(itemCount==0){
+            System.out.println("Cart is empty.");
+            return;
+        }
+        System.out.println("Items in the cart: ");
+        for(int i=0; i<itemCount; i++){
+            System.out.println(itemNames[i]+ " - $"+itemPrices[i]);
+        }
+    }
+
 }
