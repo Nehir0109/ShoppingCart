@@ -43,6 +43,16 @@ public class ShoppingCart {
         }
     }
 
+    private double calculateTotalPrice(){
+        double totalPrice=0.0;
+
+        for(int i=0; i<itemCount; i++){
+            totalPrice+= itemPrices[i];
+        }
+
+        return totalPrice;
+    }
+
     private void clearCart(){
         for(int i=0;i<itemCount;i++){
             itemNames[i]=null;
