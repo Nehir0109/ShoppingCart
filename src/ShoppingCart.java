@@ -14,15 +14,34 @@ public class ShoppingCart {
         this.itemQuantities= new int[MAX_ITEMS];
     }
 
-    private void addItemToCart(String itemName, double itemPrice ){
+    private void addItemToCart(String itemName, double itemPrice, int quantity){
         if(itemCount<MAX_ITEMS){
-            itemNames[itemCount]= itemName;
-            itemPrices[itemCount]= itemPrice;
-            itemCount++;
-            System.out.println(itemName+ " added to the cart.");
+            if(checkStock(itemName,quantity)){
+                itemNames[itemCount]= itemName;
+                itemPrices[itemCount]= itemPrice;
+                itemCount++;
+                System.out.println(itemName+ " (x" +quantity+ ") added to the cart.");
+            }
+            else{
+                System.out.println("Sorry , "+itemName+ " is out of stock or insufficient stock.");
+            }
         }else{
             System.out.println("Sorry, cart is full.");
         }
+    }
+
+    private boolean checkStock(String itemName, int quantity){
+        for(int i=0; i<itemCount; i++){
+            if(itemNames[i].equals(itemName)){
+                if(itemQuantities[i]>= quantity){
+                    itemQuantities[i]-=quantity; //ürünleri sepete ekledikten sonra stocktan düştük
+                    return true;
+                }else {
+                    return false;
+                }
+            }
+        }
+        return false;
     }
 
     private void removeItemsFromTheCart(String removeName){
