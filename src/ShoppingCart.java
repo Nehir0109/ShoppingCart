@@ -26,7 +26,7 @@ public class ShoppingCart {
                 System.out.println("Sorry , "+itemName+ " is out of stock or insufficient stock.");
             }
         }else{
-            System.out.println("Sorry, cart is full.");
+            System.out.println("Sorry, cart is full.You can not add more items.");
         }
     }
 
