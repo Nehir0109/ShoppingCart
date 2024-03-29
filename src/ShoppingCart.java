@@ -42,4 +42,14 @@ public class ShoppingCart {
             System.out.println(removeName+ " not found in the cart.");
         }
     }
+
+    private void clearCart(){
+        for(int i=0;i<itemCount;i++){
+            itemNames[i]=null;
+            itemPrices[i]= 0.0;
+        }
+        itemCount=0;
+        System.out.println("Cart is cleared successfully.");
+    }
+
 }
