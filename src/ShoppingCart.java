@@ -43,15 +43,19 @@ public class ShoppingCart {
         }
     }
 
+
     private double calculateTotalPrice(boolean applyDiscount, double discountRate){
+
         double totalPrice=0.0;
 
         for(int i=0; i<itemCount; i++){
             totalPrice+= itemPrices[i];
         }
+
         if(applyDiscount){
             totalPrice*= (1.0- discountRate);
         }
+
 
         return totalPrice;
     }
